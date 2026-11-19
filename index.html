@@ -11,7 +11,7 @@
   }(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
 
-  fbq('init', '1112564734571212');
+  fbq('init', '2171537720456611');
   fbq('track', 'PageView');
   fbq('track', 'ViewContent'); // Evento importante para PV
 </script>
@@ -1603,11 +1603,139 @@
   height: auto;
 }
 
+/* ===== DEMAND LINE ===== */
+.demand-line{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 4px;
+  font-size: 14px;
+  color: #555;
+}
+.demand-bolt{
+  color: #f5a623;
+  font-size: 15px;
+}
+.demand-text{
+  color: #d4760a;
+}
+.demand-text strong{
+  color: #d4760a;
+  font-weight: 600;
+}
+.demand-num{
+  color: #e0454f;
+  font-weight: 700;
+}
+
+/* ===== SAVE BADGE ===== */
+.save-badge{
+  display: inline-block;
+  background: #2e9e3f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* ===== CREDIT LINE ===== */
+.credit-line{
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* ===== SCARCITY LINE ===== */
+.scarcity-line{
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #efefef;
+  font-size: 15px;
+  color: #e0454f;
+  font-weight: 600;
+}
+
+/* ===== BLACK NOVEMBER BANNER ===== */
+.bf-banner{
+  background: #111;
+  padding: 10px 16px;
+  text-align: center;
+}
+.bf-banner-text{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.bf-banner-text span{
+  color: #f5c518;
+}
+
+/* ===== COUNTDOWN TIMER ===== */
+.countdown-bar{
+  background: #0b6ecb;
+  padding: 10px 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.countdown-bar .cd-icon{
+  font-size: 18px;
+}
+.countdown-bar .cd-label{
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+.countdown-bar .cd-timer{
+  display: inline-flex;
+  gap: 4px;
+}
+.countdown-bar .cd-block{
+  background: rgba(255,255,255,0.18);
+  border-radius: 4px;
+  padding: 3px 7px;
+  min-width: 32px;
+  text-align: center;
+}
+.countdown-bar .cd-num{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.countdown-bar .cd-unit{
+  color: rgba(255,255,255,0.7);
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 1px;
+}
+.countdown-bar .cd-sep{
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  align-self: flex-start;
+  padding-top: 3px;
+}
 
   </style>
 </head>
 
 <body>
+  <!-- BLACK NOVEMBER BANNER -->
+  <div class="bf-banner">
+    <div class="bf-banner-text">&#9733; <span>Black November</span> — Special Deal &#9733;</div>
+  </div>
+
   <!-- ETAPA 1: TOP BAR -->
   <header class="topbar" aria-label="Top Bar">
     <div class="topbar__left">
@@ -1640,6 +1768,19 @@
       </button>
     </div>
   </header>
+
+  <!-- COUNTDOWN TIMER -->
+  <div class="countdown-bar">
+    <span class="cd-icon">&#9200;</span>
+    <span class="cd-label">Offer ends today!</span>
+    <div class="cd-timer">
+      <div class="cd-block"><span class="cd-num" id="cdH">00</span><span class="cd-unit">hrs</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdM">00</span><span class="cd-unit">min</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdS">00</span><span class="cd-unit">sec</span></div>
+    </div>
+  </div>
 
   <!-- ETAPA 2: CORPO ACIMA DA DOBRA -->
   <div class="wrap">
@@ -1685,6 +1826,11 @@
 
       <p class="subtitle">Compact Countertop Dishwasher</p>
 
+      <div class="demand-line">
+        <span class="demand-bolt">&#9889;</span>
+        <span class="demand-text"><strong>In high demand</strong> - <strong class="demand-num">51 people</strong> have this in their cart</span>
+      </div>
+
       <div class="rating" aria-label="Rating and reviews">
         <svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M12 17.3l-6.18 3.73 1.64-7.03L2 9.24l7.19-.62L12 2l2.81 6.62 7.19.62-5.46 4.76 1.64 7.03z"></path>
@@ -1700,17 +1846,15 @@
     <div class="price-left">
       <div class="main-price">
         <span class="currency">R</span>
-        <span class="price">597</span>
+        <span class="price">499</span>
       </div>
 
       <div class="was-price">
-        <span class="was">R1030</span>
-        <svg class="info-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="9"></circle>
-          <path d="M12 10v6"></path>
-          <path d="M12 7h.01"></path>
-        </svg>
+        <span class="was">R1,030</span>
+        <span class="save-badge">You save R531</span>
       </div>
+
+      <div class="credit-line">or <strong>R42/mo</strong> x 12 with takealot.credit</div>
 
       <div class="est-delivery">
         <span class="muted">Estimated Delivery</span>
@@ -1719,14 +1863,16 @@
         <span class="pill">JHB</span>
       </div>
 
-      <!-- aqui entra data dinâmica ou "Get It Tomorrow!" -->
       <div class="delivery-inline">
-  <span class="delivery-range" id="singleDeliveryRange">Get It Tomorrow!</span>
-  <a class="tcs" href="#">T&Cs Apply</a>
-</div>
+        <span class="delivery-range" id="singleDeliveryRange">Get It Tomorrow!</span>
+        <a class="tcs" href="#">T&Cs Apply</a>
+      </div>
 
+      <div class="scarcity-line">Only <strong>4</strong> left at this price</div>
+
+    </div>
   </div>
-</div></section>
+</section>
 
 
   <!-- FREE DELIVERY WITH TAKEALOTMORE -->
@@ -2278,6 +2424,22 @@
 
 
   <script>
+  // Countdown timer — expires at midnight today
+  (function(){
+    function updateCountdown(){
+      var now = new Date();
+      var end = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+      var diff = Math.max(0, end - now);
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cdH').textContent = h < 10 ? '0'+h : h;
+      document.getElementById('cdM').textContent = m < 10 ? '0'+m : m;
+      document.getElementById('cdS').textContent = s < 10 ? '0'+s : s;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
 
 
     // ===== Carousel (dots + swipe) =====
